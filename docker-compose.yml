@@ -13,9 +13,9 @@ services:
     networks:
       - database-backend
     deploy:
-      placement:
-        constraints:
-          - node.labels.database-server == true
+#       placement:
+#         constraints:
+#           - node.labels.database-server == true
       restart_policy:
         condition: any
       update_config:
