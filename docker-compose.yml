@@ -16,6 +16,7 @@ services:
 #       placement:
 #         constraints:
 #           - node.labels.database-server == true
+      replicas: 1
       restart_policy:
         condition: any
       update_config:
@@ -39,8 +40,6 @@ services:
     networks:
       - database-backend
       - traefik-public
-    ports:
-      - 3333:3000
 #    logging:
 #      driver: none
     deploy:
@@ -80,7 +79,7 @@ services:
         db:
           user: kemal 
           password: ${DATABASE_PASSWORD} 
-          host: database 
+          host: invidious_database 
           port: 5432 
           dbname: invidious 
         full_refresh: false 
